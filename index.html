@@ -1,115 +1,88 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f3f3f3">
-    <title>fairstore — clothing donations</title>
-    <style>
-      :root {
-        color-scheme: light;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        color: #202020;
-        background: #f3f3f3;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        min-width: 320px;
-        min-height: 100vh;
-        margin: 0;
-        padding: 24px;
-      }
-
-      main {
-        width: min(100%, 560px);
-        margin: 0 auto;
-        padding: 32px 0;
-      }
-
-      header {
-        padding-bottom: 28px;
-        border-bottom: 1px solid #c9c9c9;
-      }
-
-      h1 {
-        margin: 0;
-        font-size: clamp(2.5rem, 12vw, 4rem);
-        font-weight: 700;
-        letter-spacing: -0.07em;
-        line-height: 1;
-      }
-
-      address {
-        margin-top: 14px;
-        color: #595959;
-        font-size: 1rem;
-        font-style: normal;
-        line-height: 1.5;
-      }
-
-      .intro {
-        margin: 28px 0;
-        color: #404040;
-        font-size: 1.05rem;
-        line-height: 1.7;
-      }
-
-      h2 {
-        margin: 0 0 12px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-
-      ul {
-        margin: 0;
-        padding: 0;
-        border-top: 1px solid #c9c9c9;
-        list-style: none;
-      }
-
-      li {
-        padding: 18px 0;
-        border-bottom: 1px solid #c9c9c9;
-        font-size: 1.1rem;
-        font-weight: 500;
-        line-height: 1.4;
-      }
-
-      @media (max-width: 400px) {
-        body {
-          padding: 16px;
-        }
-
-        main {
-          padding-top: 24px;
-        }
-      }
-    </style>
+    <meta name="description" content="Spenden, Öffnungszeiten und Standorte der fairstores in Köln.">
+    <title>fairstore Köln — Spenden und Standorte</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <main>
       <header>
-        <h1>fairstore</h1>
-        <address>Severinstraße 57<br>50678 Köln</address>
+        <h1>fair<span>store</span> Köln</h1>
+        <p class="tagline">Gut erhaltene Dinge weitergeben. Im Veedel einkaufen.</p>
       </header>
 
-      <p class="intro">Donators with a box/ a sack full of clothings at home wants to know which of the things they can donate – but it needs time to find them online in the texts or they only read it at the shop door.</p>
+      <div class="main-grid">
+        <section class="card donations" aria-labelledby="donations-heading">
+          <h2 id="donations-heading">Was kann ich spenden?</h2>
+          <ul class="donation-list">
+            <li>Gut erhaltene Winterkleidung und Winterschuhe</li>
+            <li>Hausrat, Porzellan, Töpfe und Pfannen</li>
+            <li>Dekoartikel sowie Hand- und Duschtücher</li>
+          </ul>
+          <p class="conditions"><strong>Bitte sauber und vollständig.</strong> Kleine Mengen: ein Sack oder eine Kiste. Abgabe während der Öffnungszeiten in den fairstores oder im Spendenlager in Poll.</p>
+        </section>
 
-      <section aria-labelledby="questions-heading">
-        <h2 id="questions-heading">Your questions</h2>
-        <ul>
-          <li>Which things can I donate?</li>
-          <li>Where can I donate and when?</li>
-          <li>How much can I donate?</li>
-          <li>In what conditions?</li>
+        <section class="card faircard" aria-labelledby="faircard-heading">
+          <h2 id="faircard-heading">faircard</h2>
+          <p class="benefit"><strong>Bis zu 3 % Rabatt</strong> für alle Kunden.</p>
+          <p class="benefit"><strong>Bis zu 30 % Rabatt</strong> bei nachweislich geringem Einkommen.</p>
+          <p>Mit Nachweis, zum Beispiel Köln-Pass oder Studentenausweis, an der Kasse beantragen – gültig in allen fünf fairstores.</p>
+        </section>
+      </div>
+
+      <div class="info-grid">
+        <section class="card assortment" aria-labelledby="assortment-heading">
+          <h2 id="assortment-heading">Sortiment</h2>
+          <p>Damen-, Herren-, Sport- und Kinderbekleidung, Spielzeug, Dekoartikel, Hausrat und Heimtextilien, Bücher, Musik und Filme, Taschen, Koffer, Rucksäcke, Möbel und mehr.</p>
+        </section>
+
+        <section class="card hours" aria-labelledby="hours-heading">
+          <h2 id="hours-heading">Öffnungszeiten</h2>
+          <p><strong>Mo–Fr</strong> 10–18 Uhr</p>
+          <p><strong>Samstag</strong> 10–16 Uhr</p>
+          <p>Gilt für alle fünf fairstores.</p>
+        </section>
+      </div>
+
+      <section class="content-section" aria-labelledby="locations-heading">
+        <h2 id="locations-heading">Wo finde ich den fairstore?</h2>
+        <ul class="branch-list">
+          <li class="branch">
+            <h3>fairstore Kalk</h3>
+            <address>Kalker Hauptstraße 177<br>51103 Köln</address>
+            <a class="phone" href="tel:+4922116856687">0221 168566-87</a>
+          </li>
+          <li class="branch">
+            <h3>fairstore Mülheim</h3>
+            <address>Buchheimer Straße 46<br>51063 Köln</address>
+            <a class="phone" href="tel:+4922116830940">0221 1683094-0</a>
+          </li>
+          <li class="branch">
+            <h3>fairstore Südstadt</h3>
+            <address>Severinstraße 57<br>50678 Köln</address>
+            <a class="phone" href="tel:+4922116822938">0221 16822938</a>
+          </li>
+          <li class="branch">
+            <h3>fairstore Eigelstein</h3>
+            <address>Eigelstein 117<br>50668 Köln</address>
+            <a class="phone" href="tel:+4922156088503">0221 56088503</a>
+          </li>
+          <li class="branch">
+            <h3>fairstore Porz</h3>
+            <address>Hermannstr. 1–3<br>51143 Köln</address>
+            <a class="phone" href="tel:+4922031868410">02203 1868410</a>
+          </li>
         </ul>
       </section>
+
+      <footer class="source">
+        <p>Quelle: <a href="https://www.diakonie-michaelshoven.de/angebote/weitere-angebote/fairstore">Diakonie Michaelshoven – fairstore Köln</a> und Notizen durch Befragungen</p>
+      </footer>
     </main>
+    <script src="app.js"></script>
   </body>
 </html>
