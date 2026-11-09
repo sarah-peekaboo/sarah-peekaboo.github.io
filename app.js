@@ -18,14 +18,14 @@ const icons = {
 };
 
 const categories = [
-  { id: "kleidung", title: "Kleidung", icon: "clothes", summary: "Aktuell: Winterkleidung", search: ["kleidung", "winterkleidung", "jacke", "mantel", "hose", "sommerkleidung"] },
-  { id: "schuhe", title: "Schuhe", icon: "shoes", summary: "Aktuell: Winterschuhe", search: ["schuhe", "winterschuhe", "stiefel", "sportschuhe"] },
-  { id: "hausrat", title: "Hausrat", icon: "home", summary: "Porzellan, Töpfe, Pfannen, Tücher", search: ["hausrat", "teller", "porzellan", "topf", "töpfe", "pfanne", "pfannen", "glas", "gläser", "tuch", "handtuch", "duschtuch"] },
-  { id: "buecher", title: "Bücher", icon: "book", summary: "Im Sortiment; Spendenannahme unbestätigt", search: ["buch", "bücher"] },
-  { id: "spielzeug", title: "Spielzeug", icon: "toy", summary: "Im Sortiment; Spendenannahme unbestätigt", search: ["spielzeug"] },
-  { id: "moebel", title: "Möbel", icon: "furniture", summary: "Anfrage mit Fotos per E-Mail", search: ["möbel", "moebel", "sofa", "stuhl", "schrank"] },
-  { id: "elektrogeraete", title: "Elektrogeräte", icon: "plug", summary: "Werden nicht angenommen", search: ["elektro", "elektrogerät", "elektrogeräte", "gerät", "geraet"] },
-  { id: "dekoration", title: "Dekoration", icon: "decor", summary: "Aktuell angenommen", search: ["deko", "dekoration", "dekoartikel"] }
+  { id: "kleidung", title: "Kleidung", icon: "clothes", summary: "Aktuell: Winterkleidung", search: ["kleidung", "bekleidung", "textilien", "winterkleidung", "sommerkleidung", "jacke", "winterjacke", "mantel", "wintermantel", "hose", "jeans", "pullover", "sweater", "hemd", "bluse", "shirt", "t-shirt", "kleid", "rock", "schal", "mütze", "handschuhe", "sportkleidung", "kinderkleidung"] },
+  { id: "schuhe", title: "Schuhe", icon: "shoes", summary: "Aktuell: Winterschuhe", search: ["schuhe", "schuh", "winterschuhe", "winterstiefel", "stiefel", "sportschuhe", "sneaker", "turnschuhe", "sandalen", "hausschuhe", "schneestiefel", "pumps"] },
+  { id: "hausrat", title: "Hausrat", icon: "home", summary: "Porzellan, Töpfe, Pfannen, Tücher", search: ["hausrat", "haushalt", "geschirr", "teller", "porzellan", "topf", "töpfe", "pfanne", "pfannen", "kochtopf", "bratpfanne", "schüssel", "besteck", "tasse", "becher", "glas", "gläser", "weinglas", "sektglas", "tuch", "handtuch", "handtücher", "duschtuch", "duschtücher", "badetuch", "heimtextilien", "bettwäsche", "kissen", "decke", "tischdecke", "matratze", "matratzen", "hygieneartikel"] },
+  { id: "buecher", title: "Bücher", icon: "book", summary: "Im Sortiment; Spendenannahme unbestätigt", search: ["buch", "bücher", "roman", "krimi", "bilderbuch", "kinderbuch", "sachbuch", "lexikon", "comic", "comics", "zeitschrift", "magazin", "musik", "cd", "dvd", "film", "filme", "blu-ray", "schallplatte"] },
+  { id: "spielzeug", title: "Spielzeug", icon: "toy", summary: "Im Sortiment; Spendenannahme unbestätigt", search: ["spielzeug", "spielwaren", "puppe", "puppen", "lego", "bausteine", "baustein", "ball", "bälle", "spielball", "brettspiel", "gesellschaftsspiel", "puzzle", "kuscheltier", "stofftier", "spielzeugauto", "spielzeugautos", "teddy", "spiel"] },
+  { id: "moebel", title: "Möbel", icon: "furniture", summary: "Anfrage mit Fotos per E-Mail", search: ["möbel", "moebel", "sofa", "couch", "stuhl", "sessel", "schrank", "tisch", "bett", "regal", "kommode", "sideboard", "esstisch", "kleiderschrank", "bücherregal", "sitzbank"] },
+  { id: "elektrogeraete", title: "Elektrogeräte", icon: "plug", summary: "Werden nicht angenommen", search: ["elektro", "elektrogerät", "elektrogeräte", "elektronik", "elektronisch", "gerät", "geräte", "mikrowelle", "mikrowellen", "toaster", "kühlschrank", "gefrierschrank", "waschmaschine", "trockner", "staubsauger", "kaffeemaschine", "kaffeevollautomat", "wasserkocher", "mixer", "küchenmaschine", "föhn", "foehn", "bügeleisen", "fernseher", "tv", "radio", "computer", "laptop", "tablet", "handy", "smartphone", "drucker", "lampe", "leuchte", "bohrmaschine"] },
+  { id: "dekoration", title: "Dekoration", icon: "decor", summary: "Aktuell angenommen", search: ["deko", "dekoration", "dekoartikel", "dekogegenstand", "vase", "kerze", "kerzen", "kerzenhalter", "bilderrahmen", "wandbild", "bild", "figur", "dekofigur", "laterne", "tischdeko", "wohndeko"] }
 ];
 
 const locations = [
@@ -38,15 +38,12 @@ const locations = [
 ];
 
 const faqs = [
-  { question: "Welche Kleidung wird aktuell angenommen?", answer: "Gut erhaltene, saubere und vollständige Winterkleidung wird aktuell angenommen. Sommerbekleidung wird momentan nicht angenommen." },
-  { question: "Müssen Spenden sauber und vollständig sein?", answer: "Ja. Die Spenden sollen gut erhalten, sauber und vollständig sein." },
-  { question: "Werden Möbel angenommen?", answer: "Bitte Anfragen zur Möbelspende mit Fotos per E-Mail an spendenlager@diakonie-michaelshoven.de senden." },
-  { question: "Kann ich Elektrogeräte spenden?", answer: "Nein. Laut den vorliegenden fairstore-Angaben werden Elektrogeräte nicht angenommen." },
-  { question: "Wie viel darf ich abgeben?", answer: "Pro Spende ist ein blauer Sack oder eine Umzugskiste vorgesehen." },
-  { question: "Welche Vorteile bietet die faircard?", answer: "Alle Kunden erhalten bis zu 3 % Rabatt. Menschen mit nachweislich geringem Einkommen erhalten abhängig von der Ware bis zu 30 % Rabatt." },
-  { question: "Welche Nachweise kommen für die faircard infrage?", answer: "Genannt sind unter anderem Köln-Pass, Bewilligungsbescheid (ALG I, ALG II, Sozialgeld), BAföG-/BAB-Bescheid, Wohngeldbescheid, Kindergeldzuschlagsbescheid und Einkommensnachweis. Ein Studentenausweis wird ebenfalls genannt." },
-  { question: "Wie lange dauert die Bearbeitung?", answer: "Eine genaue Bearbeitungsdauer ist in den vorliegenden Angaben nicht bestätigt." },
-  { question: "Wo kann ich den faircard-Antrag einreichen?", answer: "Laut den vorliegenden Angaben kann der Antrag an der Kasse erfragt werden; ausgefüllte Unterlagen mit Nachweiskopie können per E-Mail oder Post gesendet werden." }
+  { question: "Was kann ich momentan spenden?", answer: "Gut erhaltene, saubere und vollständige Winterkleidung und Winterschuhe, Hausratartikel, Porzellan, Töpfe und Pfannen, Dekoartikel sowie Hand- und Duschtücher. Die Spenden können in kleinen Mengen (ein Sack oder eine Kiste) während der Öffnungszeiten in den fünf fairstores oder im Spendenlager in Poll abgegeben werden." },
+  { question: "Wie viele Sachen darf ich spenden?", answer: "Sachen in kleinen Mengen (ein Sack oder eine Kiste) können während der Öffnungszeiten in den fünf fairstores oder im Spendenlager in Poll abgegeben werden." },
+  { question: "Wann kann ich spenden?", answer: "Während der Öffnungszeiten in den fünf fairstores oder im Spendenlager in Poll." },
+  { question: "Wer kann die faircard bekommen?", answer: "Alle Kunden erhalten mit der faircard bis zu 3 % Rabatt auf das Sortiment. Kunden mit einem nachweislich geringen Einkommen erhalten je nach Ware bis zu 30 % Rabatt. Mit einem Nachweis, zum Beispiel dem Köln-Pass, kannst du an der Kasse nach der faircard fragen." },
+  { question: "Wo kann ich die faircard beantragen?", answer: "Mit einem Nachweis an der Kasse nach der faircard fragen und vor Ort ausfüllen, online ausfüllen und ausgedruckt im fairstore mit Nachweis abgeben oder online ausfüllen und per E-Mail mit Nachweis verschicken." },
+  { question: "Wie viel Rabatt bekomme ich mit der faircard?", answer: "Alle Kunden erhalten mit der faircard bis zu 3 % Rabatt auf das Sortiment. Kunden mit einem nachweislich geringen Einkommen erhalten je nach Ware bis zu 30 % Rabatt." }
 ];
 
 function icon(name) {
@@ -88,7 +85,7 @@ function pageHome() {
       </a>
       <a class="card feature-card" href="#/faircard">
         <div>${icon("card")}<div class="feature-copy"><h2>Ich möchte die faircard nutzen</h2><p>Bis zu 3 % Rabatt für alle; bis zu 30 % mit passendem Nachweis.</p></div></div>
-        <span class="button button-secondary">faircard entdecken</span>
+        <span class="button">faircard entdecken</span>
       </a>
     </div>
     <div class="quick-links home-quick-links" aria-label="Schnelleinstieg">
@@ -98,11 +95,8 @@ function pageHome() {
     </div>
   </section>
   <section class="section-block">
-    <div class="section-heading"><h2>Häufig gesucht</h2><p>Wähle einen Gegenstand, um die bekannten Annahmehinweise zu sehen.</p></div>
-    <div class="quick-links">${["kleidung", "schuhe", "hausrat", "buecher", "elektrogeraete", "moebel"].map(id => {
-      const item = categories.find(category => category.id === id);
-      return `<a class="quick-link" href="#/spenden/${item.id}">${item.title}</a>`;
-    }).join("")}</div>
+    <div class="section-heading"><h2>Häufige Fragen</h2></div>
+    <div class="faq-list">${faqs.map((item, index) => `<details${index === 0 ? " open" : ""}><summary>${item.question}</summary><div class="faq-answer">${item.answer}</div></details>`).join("")}</div>
   </section>
   <section class="section-block card card-muted">
     <h2>Sortiment</h2>
@@ -134,23 +128,21 @@ function pageDonationCategory(id) {
   const category = categories.find(item => item.id === id);
   if (!category) return pageDonations();
   const summaries = {
-    kleidung: { status: "Aktuell angenommen: gut erhaltene Winterkleidung. Sommerbekleidung wird momentan nicht angenommen.", accepted: "Winterkleidung für Erwachsene und Kinder.", no: "Sommerbekleidung wird derzeit nicht angenommen.", extra: "Abgabe in kleinen Mengen während der Öffnungszeiten." },
-    schuhe: { status: "Aktuell angenommen: gut erhaltene Winterschuhe.", accepted: "Winterschuhe.", no: "Andere Schuharten sind in den vorliegenden Angaben zur aktuellen Annahme nicht bestätigt.", extra: "Abgabe in kleinen Mengen während der Öffnungszeiten." },
-    hausrat: { status: "Aktuell angenommen: Hausratartikel, Porzellan, Töpfe und Pfannen sowie Hand- und Duschtücher.", accepted: "Hausrat, Porzellan, Töpfe, Pfannen, Handtücher und Duschtücher.", no: "Gläser sowie Wein- und Sektgläser werden momentan nicht angenommen.", extra: "Abgabe in kleinen Mengen während der Öffnungszeiten." },
-    buecher: { status: "Bücher gehören zum Sortiment. Ob sie aktuell als Spende angenommen werden, ist in den vorliegenden Angaben nicht bestätigt.", accepted: "Bücher sind im Secondhand-Sortiment aufgeführt.", no: "Aktuelle Annahmeregeln für Bücherspenden sind nicht bestätigt.", extra: "Bitte vor der Abgabe beim fairstore nachfragen." },
-    spielzeug: { status: "Spielzeug gehört zum Sortiment. Ob es aktuell als Spende angenommen wird, ist in den vorliegenden Angaben nicht bestätigt.", accepted: "Spielzeug ist im Secondhand-Sortiment aufgeführt.", no: "Aktuelle Annahmeregeln für Spielzeugspenden sind nicht bestätigt.", extra: "Bitte vor der Abgabe beim fairstore nachfragen." },
-    moebel: { status: "Möbelspenden werden bitte vorab angefragt.", accepted: "Eine Annahme ist nicht pauschal bestätigt.", no: "Bitte Möbel nicht unangekündigt abgeben.", extra: "Anfrage mit Fotos an spendenlager@diakonie-michaelshoven.de senden." },
-    elektrogeraete: { status: "Elektrogeräte werden laut den vorliegenden fairstore-Angaben nicht angenommen.", accepted: "Keine Elektrogeräte.", no: "Elektrogeräte werden nicht angenommen.", extra: "Bitte keine Elektrogeräte abgeben." },
-    dekoration: { status: "Dekoartikel werden aktuell angenommen.", accepted: "Gut erhaltene Dekoartikel.", no: "Weitere Ausschlüsse für Dekoartikel sind nicht bestätigt.", extra: "Abgabe in kleinen Mengen während der Öffnungszeiten." }
+    kleidung: { accepted: ["Winterkleidung für Erwachsene und Kinder"], acceptedNote: "", no: "Sommerbekleidung wird derzeit nicht angenommen.", extra: "Abgabe in kleinen Mengen während der Öffnungszeiten." },
+    schuhe: { accepted: ["Winterschuhe"], acceptedNote: "", no: "Andere Schuharten sind in den vorliegenden Angaben zur aktuellen Annahme nicht bestätigt.", extra: "Abgabe in kleinen Mengen während der Öffnungszeiten." },
+    hausrat: { accepted: ["Hausratartikel", "Porzellan", "Töpfe und Pfannen", "Hand- und Duschtücher"], acceptedNote: "", no: "Gläser sowie Wein- und Sektgläser werden momentan nicht angenommen.", extra: "Abgabe in kleinen Mengen während der Öffnungszeiten." },
+    buecher: { accepted: [], acceptedNote: "Bücher gehören zum Sortiment. Ob sie aktuell als Spende angenommen werden, bitte beim fairstore nachfragen.", no: "Aktuelle Annahmeregeln für Bücherspenden sind nicht bestätigt.", extra: "Bitte vor der Abgabe beim fairstore nachfragen." },
+    spielzeug: { accepted: [], acceptedNote: "Spielzeug gehört zum Sortiment, zum Beispiel Puppen, LEGO und Bälle. Ob es aktuell als Spende angenommen wird, bitte beim fairstore nachfragen.", no: "Aktuelle Annahmeregeln für Spielzeugspenden sind nicht bestätigt.", extra: "Bitte vor der Abgabe beim fairstore nachfragen." },
+    moebel: { accepted: [], acceptedNote: "Möbelspenden bitte vorab mit Fotos per E-Mail anfragen.", no: "Bitte Möbel nicht unangekündigt abgeben.", extra: "Anfrage mit Fotos an spendenlager@diakonie-michaelshoven.de senden." },
+    elektrogeraete: { accepted: [], acceptedNote: "Elektrogeräte werden nicht angenommen.", no: "Elektrogeräte werden nicht angenommen.", extra: "Bitte keine Elektrogeräte abgeben." },
+    dekoration: { accepted: ["Dekoartikel"], acceptedNote: "", no: "Weitere Ausschlüsse für Dekoartikel sind nicht bestätigt.", extra: "Abgabe in kleinen Mengen während der Öffnungszeiten." }
   };
   const info = summaries[id];
   return `<a class="back-link" href="#/spenden">← Zurück zu Spenden</a>
     <p class="eyebrow">Spenden · ${category.title}</p>
     <h1>${category.title} spenden</h1>
-    <p class="status-note">${info.status}</p>
-    <p class="detail-meta">Alle Hinweise beruhen auf den vorliegenden fairstore-Angaben. Nicht bestätigte Annahmeregeln sind ausdrücklich als offen markiert.</p>
     <div class="detail-columns">
-      <section class="card"><h2>Was ist bekannt?</h2><p>${info.accepted}</p></section>
+      <section class="card"><h2>Geeignete Spenden</h2>${info.accepted.length ? `<ul class="fact-list">${info.accepted.map(item => `<li>${item}</li>`).join("")}</ul>` : `<p>${info.acceptedNote}</p>`}</section>
       <section class="card"><h2>Was wird nicht angenommen?</h2><p>${info.no}</p></section>
       <section class="card"><h2>Zustand & Abgabe</h2><p>Spenden müssen gut erhalten, sauber und vollständig sein. Pro Spende: ein blauer Sack oder eine Umzugskiste.</p><p>${info.extra}</p></section>
       <section class="card"><h2>Wo abgeben?</h2><p>In den fünf fairstores während der Öffnungszeiten oder im Spendenlager in Poll.</p><a href="#/standorte">Standorte ansehen</a></section>
@@ -230,19 +222,19 @@ function pageFaircardCheck() {
 function pageFaircardApply() {
   return `<a class="back-link" href="#/faircard">← Zurück zur faircard</a>
     <p class="eyebrow">faircard</p><h1>faircard beantragen</h1>
-    <p class="lede">Die vorliegenden Informationen beschreiben diese Schritte. Der offizielle PDF-Link ist hier noch nicht hinterlegt.</p>
+    <p class="lede">Ablauf der Beantragung</p>
     <ol class="fact-list">
       <li>Nachweis vorbereiten; für den höheren Rabatt ist ein aktuell gültiger Nachweis erforderlich.</li>
       <li>faircard an der Kasse erfragen oder den Antrag ausfüllen.</li>
       <li>Antrag und Kopie des Nachweises per E-Mail oder Post einreichen.</li>
       <li>Die faircard wird laut den vorliegenden Angaben zeitnah zugeschickt.</li>
     </ol>
+    <div class="section-block"><a class="button" href="https://www.diakonie-michaelshoven.de/fileadmin/default/downloads/angebote/weitere-angebote/antrag-faircard-fairstore.pdf" target="_blank" rel="noopener noreferrer">Offiziellen Antrag herunterladen</a><p class="status-note">Der offizielle Antrag liegt als PDF auf der Diakonie-Seite vor. Telefon: <a href="tel:+4922116814685">0221 16814685</a>.</p></div>
     <div class="grid grid-three section-block">
       <section class="card"><h2>Im fairstore</h2><p>An der Kasse nach der faircard fragen.</p></section>
       <section class="card"><h2>Per E-Mail</h2><p>fairstore@michaelshoven.de</p><a href="mailto:fairstore@michaelshoven.de">E-Mail öffnen</a></section>
       <section class="card"><h2>Per Post</h2><address>Diakonie Michaelshoven Soziale Hilfen gGmbH<br>Verwaltung fairstore<br>Poller Kirchweg 61<br>51105 Köln</address></section>
-    </div>
-    <div class="section-block"><button type="button" disabled>Offiziellen Antrag herunterladen</button><p class="status-note">Der offizielle Antrag-Download ist noch nicht verlinkt. Es wurde kein Download-Link ergänzt, um keinen Link zu erfinden. Telefon: <a href="tel:+4922116814685">0221 16814685</a>.</p></div>`;
+    </div>`;
 }
 
 function pageLocations(id) {
@@ -306,20 +298,124 @@ function render() {
   menuToggle.setAttribute("aria-expanded", "false");
 }
 
+function donationSearchDetails(category, query) {
+  if (query.includes("matrat")) {
+    return {
+      status: "rejected",
+      label: "Nicht angenommen",
+      message: "Große Hygieneartikel wie Matratzen, die nicht in der Waschmaschine gereinigt werden können, werden nicht angenommen.",
+      dropoff: "Bitte nicht abgeben."
+    };
+  }
+  if (query.includes("hygieneartikel")) {
+    return {
+      status: "unknown",
+      label: "Noch nicht bestätigt",
+      message: "Große Hygieneartikel, die nicht in der Waschmaschine gereinigt werden können, werden nicht angenommen. Für andere Hygieneartikel ist die Annahme nicht bestätigt.",
+      dropoff: "Bitte frage vor der Abgabe beim fairstore nach. Bei bestätigter Annahme sind kleine Mengen (ein Sack oder eine Kiste) in den fünf fairstores oder im Spendenlager Poll abzugeben."
+    };
+  }
+  if (!category) {
+    return {
+      status: "unknown",
+      label: "Noch nicht bestätigt",
+      message: "Für diesen Gegenstand finde ich keine bestätigte Annahmeinformation.",
+      dropoff: "Bitte frage vor der Abgabe beim fairstore nach. Bei bestätigter Annahme sind kleine Mengen (ein Sack oder eine Kiste) in den fünf fairstores oder im Spendenlager Poll abzugeben."
+    };
+  }
+  if (category.id === "elektrogeraete") {
+    return {
+      status: "rejected",
+      label: "Nicht angenommen",
+      message: "Elektrogeräte werden nicht angenommen.",
+      dropoff: "Bitte nicht abgeben."
+    };
+  }
+  if (category.id === "hausrat" && (query.includes("glas") || query.includes("gläser"))) {
+    return {
+      status: "rejected",
+      label: "Momentan nicht angenommen",
+      message: "Gläser sowie Wein- und Sektgläser werden momentan nicht angenommen.",
+      dropoff: "Bitte nicht abgeben."
+    };
+  }
+  if (category.id === "kleidung" && query.includes("sommer")) {
+    return {
+      status: "rejected",
+      label: "Momentan nicht angenommen",
+      message: "Sommerbekleidung wird momentan nicht angenommen.",
+      dropoff: "Bitte nicht abgeben."
+    };
+  }
+  if (category.id === "kleidung" && !query.includes("winter")) {
+    return {
+      status: "unknown",
+      label: "Nur teilweise angenommen",
+      message: "Aktuell wird Winterkleidung angenommen. Ob andere Kleidung angenommen wird, ist nicht bestätigt.",
+      dropoff: "Bitte frage vor der Abgabe beim fairstore nach. Angenommene Spenden können in kleinen Mengen (ein Sack oder eine Kiste) in den fünf fairstores oder im Spendenlager Poll abgegeben werden."
+    };
+  }
+  if (category.id === "schuhe" && !query.includes("winter")) {
+    return {
+      status: "unknown",
+      label: "Nur teilweise angenommen",
+      message: "Aktuell werden Winterschuhe angenommen. Ob andere Schuharten angenommen werden, ist nicht bestätigt.",
+      dropoff: "Bitte frage vor der Abgabe beim fairstore nach. Angenommene Spenden können in kleinen Mengen (ein Sack oder eine Kiste) in den fünf fairstores oder im Spendenlager Poll abgegeben werden."
+    };
+  }
+  if (category.id === "moebel") {
+    return {
+      status: "inquiry",
+      label: "Vorher anfragen",
+      message: "Möbelspenden bitte vorab mit Fotos per E-Mail anfragen.",
+      dropoff: '<a href="mailto:spendenlager@diakonie-michaelshoven.de">Möbelanfrage an das Spendenlager senden</a>.'
+    };
+  }
+  if (["buecher", "spielzeug"].includes(category.id)) {
+    return {
+      status: "unknown",
+      label: "Noch nicht bestätigt",
+      message: "Der Gegenstand gehört zum Sortiment, aber die aktuelle Spendenannahme ist nicht bestätigt.",
+      dropoff: "Bitte frage vor der Abgabe beim fairstore nach. Bei bestätigter Annahme sind kleine Mengen (ein Sack oder eine Kiste) in den fünf fairstores oder im Spendenlager Poll abzugeben."
+    };
+  }
+  return {
+    status: "accepted",
+    label: "Aktuell angenommen",
+    message: "Diese Spendenart wird aktuell angenommen. Sie muss gut erhalten, sauber und vollständig sein.",
+    dropoff: "In einem der fünf fairstores oder im Spendenlager Poll. Abgabe in kleinen Mengen (ein Sack oder eine Kiste) während der Öffnungszeiten."
+  };
+}
+
 function showDonationResults(query) {
   const container = document.querySelector("#search-results");
   if (!container) return;
-  const normalized = query.trim().toLocaleLowerCase("de");
+  const normalized = String(query || "").trim().toLocaleLowerCase("de");
   if (!normalized) {
     container.innerHTML = "";
     return;
   }
-  const matches = categories.filter(category => category.search.some(term => term.includes(normalized) || normalized.includes(term)));
-  if (!matches.length) {
-    container.innerHTML = '<p class="status-note">Kein Treffer. Prüfe die Schreibweise oder wähle eine Kategorie aus der Liste.</p>';
-    return;
-  }
-  container.innerHTML = `<p><strong>Passende Kategorie${matches.length > 1 ? "n" : ""}:</strong></p><div class="quick-links">${matches.map(item => `<a class="quick-link" href="#/spenden/${item.id}">${item.title}</a>`).join("")}</div>`;
+  const normalizeTerm = value => value.toLocaleLowerCase("de")
+    .replace(/ä/g, "ae")
+    .replace(/ö/g, "oe")
+    .replace(/ü/g, "ue")
+    .replace(/ß/g, "ss");
+  const searchTerms = normalizeTerm(normalized).split(/\s+/);
+  const matches = categories.filter(category => category.search.some(term => {
+    const normalizedTerm = normalizeTerm(term);
+    return searchTerms.some(searchTerm => normalizedTerm.startsWith(searchTerm));
+  }));
+  const results = matches.length ? matches : [null];
+  container.innerHTML = `<div class="search-results-list">${results.map(category => {
+    const info = donationSearchDetails(category, normalized);
+    const title = category ? category.title : normalized.includes("matrat") ? "Matratzen" : normalized.includes("hygieneartikel") ? "Hygieneartikel" : "Keine passende Kategorie gefunden";
+    return `<article class="search-result-card">
+      <div class="search-result-heading"><span class="search-result-status search-result-status--${info.status}">${info.label}</span><h2>${title}</h2></div>
+      <p>${info.message}</p>
+      <div class="search-result-dropoff"><h3>${info.status === "rejected" ? "Abgabe" : "Wo abgeben?"}</h3><p>${info.dropoff}</p>${["rejected", "inquiry"].includes(info.status) ? "" : '<a href="#/standorte">Standorte und Öffnungszeiten ansehen</a>'}</div>
+      ${category ? `<a class="search-result-more" href="#/spenden/${category.id}">Alle Hinweise zur Kategorie ${category.title}</a>` : ""}
+    </article>`;
+  }).join("")}</div>`;
 }
 
 function donationResult(data) {
@@ -385,10 +481,6 @@ function faircardResult(proof) {
   }
   result.hidden = false;
 }
-
-app.addEventListener("input", event => {
-  if (event.target.id === "donation-query") showDonationResults(event.target.value);
-});
 
 app.addEventListener("submit", event => {
   if (event.target.id === "donation-search") {
