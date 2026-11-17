@@ -29,21 +29,21 @@ const categories = [
 ];
 
 const locations = [
-  { id: "kalk", name: "fairstore Kalk", address: "Kalker Hauptstraße 177", postcode: "51103 Köln", phone: "0221 168566-87", tel: "+4922116856687", store: true },
-  { id: "muelheim", name: "fairstore Mülheim", address: "Buchheimer Straße 46", postcode: "51063 Köln", phone: "0221 1683094-0", tel: "+4922116830940", store: true },
-  { id: "suedstadt", name: "fairstore Südstadt", address: "Severinstraße 57", postcode: "50678 Köln", phone: "0221 16822938", tel: "+4922116822938", store: true },
-  { id: "eigelstein", name: "fairstore Eigelstein", address: "Eigelstein 117", postcode: "50668 Köln", phone: "0221 56088503", tel: "+4922156088503", store: true },
-  { id: "porz", name: "fairstore Porz", address: "Hermannstr. 1–3", postcode: "51143 Köln", phone: "02203 1868410", tel: "+4922031868410", store: true },
-  { id: "spendenlager", name: "Spendenlager Poll", address: "Poller Kirchweg 6", postcode: "Köln", phone: "0221 16889997", tel: "+4922116889997", store: false }
+  { id: "kalk", name: "fairstore Kalk", address: "Kalker Hauptstraße 177", postcode: "51103 Köln", phone: "0221 168566-87", tel: "+4922116856687", image: "images/standort-kalk.jpg", store: true, latitude: 50.9382088, longitude: 7.0039469 },
+  { id: "muelheim", name: "fairstore Mülheim", address: "Buchheimer Straße 46", postcode: "51063 Köln", phone: "0221 1683094-0", tel: "+4922116830940", image: "images/standort-muelheim.jpg", store: true, latitude: 50.9628479, longitude: 7.0024665 },
+  { id: "suedstadt", name: "fairstore Südstadt", address: "Severinstraße 57", postcode: "50678 Köln", phone: "0221 16822938", tel: "+4922116822938", image: "images/standort-suedstadt.jpg", store: true, latitude: 50.9241392, longitude: 6.958552 },
+  { id: "eigelstein", name: "fairstore Eigelstein", address: "Eigelstein 117", postcode: "50668 Köln", phone: "0221 56088503", tel: "+4922156088503", image: "images/standort-eigelstein.jpg", store: true, latitude: 50.9486331, longitude: 6.9566589 },
+  { id: "porz", name: "fairstore Porz", address: "Hermannstr. 1–3", postcode: "51143 Köln", phone: "02203 1868410", tel: "+4922031868410", image: "images/standort-porz.jpg", store: true, latitude: 50.8842583, longitude: 7.0580089 },
+  { id: "spendenlager", name: "Spendenlager Poll", address: "Poller Kirchweg 6", postcode: "Köln", phone: "0221 16889997", tel: "+4922116889997", image: "images/standort-spendenlager-poll.jpg", store: false }
 ];
 
 const faqs = [
   { question: "Was kann ich momentan spenden?", answer: "Gut erhaltene, saubere und vollständige Bücher und Spielzeug sowie Winterkleidung und Winterschuhe, Hausratartikel, Porzellan, Töpfe und Pfannen, Dekoartikel sowie Hand- und Duschtücher. Die Spenden können in kleinen Mengen (ein Sack oder eine Kiste) während der Öffnungszeiten in den fünf fairstores oder im Spendenlager in Poll abgegeben werden." },
   { question: "Wie viele Sachen darf ich spenden?", answer: "Sachen in kleinen Mengen (ein Sack oder eine Kiste) können während der Öffnungszeiten in den fünf fairstores oder im Spendenlager in Poll abgegeben werden." },
   { question: "Wann kann ich spenden?", answer: "Während der Öffnungszeiten in den fünf fairstores oder im Spendenlager in Poll." },
-  { question: "Wer kann die faircard bekommen?", answer: "Alle Kunden erhalten mit der faircard bis zu 3 % Rabatt auf das Sortiment. Kunden mit einem nachweislich geringen Einkommen erhalten je nach Ware bis zu 30 % Rabatt. Mit einem Nachweis, zum Beispiel dem Köln-Pass, kannst du an der Kasse nach der faircard fragen." },
+  { question: "Wer kann die faircard bekommen?", answer: "Alle Kund:innen erhalten mit der faircard bis zu 3 % Rabatt auf das Sortiment. Kund:innen mit einem nachweislich geringen Einkommen erhalten je nach Ware bis zu 30 % Rabatt. Mit einem Nachweis, zum Beispiel dem Köln-Pass, kannst du an der Kasse nach der faircard fragen." },
   { question: "Wo kann ich die faircard beantragen?", answer: "Mit einem Nachweis an der Kasse nach der faircard fragen und vor Ort ausfüllen, online ausfüllen und ausgedruckt im fairstore mit Nachweis abgeben oder online ausfüllen und per E-Mail mit Nachweis verschicken." },
-  { question: "Wie viel Rabatt bekomme ich mit der faircard?", answer: "Alle Kunden erhalten mit der faircard bis zu 3 % Rabatt auf das Sortiment. Kunden mit einem nachweislich geringen Einkommen erhalten je nach Ware bis zu 30 % Rabatt." }
+  { question: "Wie viel Rabatt bekomme ich mit der faircard?", answer: "Alle Kund:innen erhalten mit der faircard bis zu 3 % Rabatt auf das Sortiment. Kund:innen mit einem nachweislich geringen Einkommen erhalten je nach Ware bis zu 30 % Rabatt." }
 ];
 
 function icon(name) {
@@ -66,11 +66,54 @@ function locationCard(location) {
     ? "<p><strong>Öffnungszeiten</strong><br>Mo–Fr 10–18 Uhr<br>Samstag 10–16 Uhr</p>"
     : "<p><strong>Spendenannahme</strong><br>Mo–Fr 08:30–16 Uhr</p>";
   return `<a class="card address-card location-link" href="#/standorte/${location.id}">
+    <img class="location-photo" src="${location.image}" alt="Foto: ${location.name}">
     <h3>${location.name}</h3>
     <address>${location.address}<br>${location.postcode}</address>
     ${hours}
     <span class="phone">${location.phone}</span>
   </a>`;
+}
+
+function locationMap() {
+  const stores = locations.filter(location => location.store);
+  const width = 420;
+  const height = 440;
+  const padding = 48;
+  const averageLatitude = stores.reduce((sum, location) => sum + location.latitude, 0) / stores.length;
+  const longitudeFactor = Math.cos(averageLatitude * Math.PI / 180);
+  const points = stores.map(location => ({
+    ...location,
+    mapX: location.longitude * longitudeFactor,
+    mapY: location.latitude
+  }));
+  const minX = Math.min(...points.map(point => point.mapX));
+  const maxX = Math.max(...points.map(point => point.mapX));
+  const minY = Math.min(...points.map(point => point.mapY));
+  const maxY = Math.max(...points.map(point => point.mapY));
+  const scale = Math.min((width - padding * 2) / (maxX - minX), (height - padding * 2) / (maxY - minY));
+  const mapWidth = (maxX - minX) * scale;
+  const mapHeight = (maxY - minY) * scale;
+  const offsetX = (width - mapWidth) / 2;
+  const offsetY = (height - mapHeight) / 2;
+  const markers = points.map(point => {
+    const x = offsetX + (point.mapX - minX) * scale;
+    const y = offsetY + (maxY - point.mapY) * scale;
+    const labelOnLeft = x > width / 2;
+    const labelX = x + (labelOnLeft ? -12 : 12);
+    return `<g class="location-map-point">
+      <circle class="location-map-marker" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="8"></circle>
+      <text class="location-map-label" x="${labelX.toFixed(1)}" y="${(y + 5).toFixed(1)}" text-anchor="${labelOnLeft ? "end" : "start"}">${point.name}</text>
+    </g>`;
+  }).join("");
+
+  return `<figure class="location-map">
+    <svg class="location-map-graphic" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="location-map-title location-map-description">
+      <title id="location-map-title">Schematische Lagekarte der fünf fairstores in Köln</title>
+      <desc id="location-map-description">Die markierten Standorte sind Kalk, Mülheim, Südstadt, Eigelstein und Porz. Das Spendenlager ist nicht eingezeichnet.</desc>
+      ${markers}
+    </svg>
+    <figcaption class="location-map-caption">Schematische Übersicht zur Lage. Für die genaue Adresse nutze die Standortliste darunter. <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap-Mitwirkende</a></figcaption>
+  </figure>`;
 }
 
 function pageHome() {
@@ -199,12 +242,12 @@ function pageFaircard() {
     <p class="eyebrow">faircard</p><h1>Die faircard – fair einkaufen für alle.</h1>
     <p class="lede">Die faircard bietet Einkaufsvorteile in allen fünf fairstores.</p>
     <div class="grid grid-two">
-      <section class="card"><span class="benefit-number">bis zu 3 %</span><h2>Rabatt für alle Kunden</h2><p>Der Rabatt gilt auf das Sortiment.</p></section>
+      <section class="card"><span class="benefit-number">bis zu 3 %</span><h2>Rabatt für alle Kund:innen</h2><p>Der Rabatt gilt auf das Sortiment.</p></section>
       <section class="card"><span class="benefit-number">bis zu 30 %</span><h2>Mit Nachweis</h2><p>Menschen mit nachweislich geringem Einkommen erhalten je nach Ware bis zu 30 % Rabatt.</p></section>
     </div>
     <div class="detail-columns">
-      <section class="card"><h2>Wer kann sie bekommen?</h2><p>Alle Kunden können die faircard erhalten. Für den höheren Rabatt wird ein Nachweis über geringes Einkommen benötigt. Auch Studentinnen und Studenten können sie mit Studentenausweis erhalten.</p></section>
-      <section class="card"><h2>Nachweise</h2><ul class="fact-list"><li>Köln-Pass</li><li>Bewilligungsbescheid (ALG I, ALG II, Sozialgeld)</li><li>BAföG-/BAB-Bescheid</li><li>Wohngeldbescheid</li><li>Bescheid über Kindergeldzuschlag</li><li>Einkommensnachweis (Gehalt, Rente, Ausbildung)</li><li>Studentenausweis</li></ul></section>
+      <section class="card"><h2>Wer kann sie bekommen?</h2><p>Alle Kund:innen können die faircard erhalten. Für den höheren Rabatt wird ein Nachweis über geringes Einkommen benötigt. Auch Student:innen können sie mit Student:innenausweis erhalten.</p></section>
+      <section class="card"><h2>Nachweise</h2><ul class="fact-list"><li>Köln-Pass</li><li>Bewilligungsbescheid (ALG I, ALG II, Sozialgeld)</li><li>BAföG-/BAB-Bescheid</li><li>Wohngeldbescheid</li><li>Bescheid über Kindergeldzuschlag</li><li>Einkommensnachweis (Gehalt, Rente, Ausbildung)</li><li>Student:innenausweis</li></ul></section>
     </div>
     <div class="action-row section-block"><a class="button" href="#/faircard/pruefen">Nachweis prüfen</a><a class="button button-secondary" href="#/faircard/beantragen">faircard beantragen</a></div>
     <p class="status-note section-block">Die genannten Rabatte und Nachweise stammen aus den vorliegenden fairstore-Angaben. Bitte erkundige dich im fairstore, falls dein Nachweis hier nicht aufgeführt ist.</p>`;
@@ -219,7 +262,7 @@ function pageFaircardCheck() {
     ["bafoeg", "BAföG- oder BAB-Bescheid"],
     ["kinderzuschlag", "Bescheid über Kindergeldzuschlag"],
     ["einkommen", "Sonstiger Einkommensnachweis"],
-    ["student", "Studentenausweis"],
+    ["student", "Student:innenausweis"],
     ["unsicher", "Ich bin unsicher"]
   ];
   return `<a class="back-link" href="#/faircard">← Zurück zur faircard</a>
@@ -265,7 +308,11 @@ function pageLocations(id) {
   return `<a class="back-link" href="#/">← Zur Startseite</a>
     <p class="eyebrow">Standorte</p><h1>Finde deinen fairstore</h1>
     <p class="lede">Fünf fairstores in Köln sowie das Spendenlager in Poll.</p>
-    <div class="location-map" role="img" aria-label="Kartenplatzhalter">Kartenansicht ist noch nicht eingebunden.<br>Alle bestätigten Adressen findest du in der Liste.</div>
+    <section class="section-block" aria-labelledby="location-map-heading">
+      <h2 id="location-map-heading">Standorte auf der Karte</h2>
+      ${locationMap()}
+      <p class="muted">Die Karte zeigt nur die fünf fairstores, nicht das Spendenlager in Poll.</p>
+    </section>
     <div class="grid grid-three section-block">${locations.map(locationCard).join("")}</div>`;
 }
 
@@ -276,10 +323,84 @@ function pageFaq() {
 }
 
 function pageLegal(name) {
-  const title = name === "impressum" ? "Impressum" : "Datenschutz";
-  return `<a class="back-link" href="#/">← Zur Startseite</a><p class="eyebrow">Information</p><h1>${title}</h1>
-    <p class="status-note">Die Angaben zu ${title} sind in den vorliegenden Projektinformationen nicht enthalten. Bitte nutze die offiziellen Seiten der Diakonie Michaelshoven.</p>
-    <p><a href="https://www.diakonie-michaelshoven.de/" target="_blank" rel="noopener noreferrer">Diakonie Michaelshoven öffnen</a></p>`;
+  if (name === "impressum") {
+    return `<a class="back-link" href="#/">← Zur Startseite</a>
+      <p class="eyebrow">Information</p><h1>Impressum</h1>
+      <p class="lede">Angaben nach § 5 Digitale-Dienste-Gesetz (DDG), soweit anwendbar.</p>
+      <section class="card" aria-labelledby="impressum-betreiber">
+        <h2 id="impressum-betreiber">Betreiberin dieser Website</h2>
+        <address>
+          Sarah Nachname<br>
+           Str. XY<br>
+          PLZ Stadt
+        </address>
+        <p>Kontakt: E-Mail</p>
+        <p>Diese Website ist ein eigenständiges Studierendenprojekt und keine offizielle Website der Diakonie Michaelshoven.</p>
+      </section>
+      <section class="card section-block" aria-labelledby="impressum-weitere-angaben">
+        <h2 id="impressum-weitere-angaben">Weitere Angaben, falls zutreffend</h2>
+        <p>Bitte vor der Veröffentlichung prüfen und nur die Angaben ergänzen, die auf die Betreiberin zutreffen:</p>
+        <ul class="fact-list">
+          <li>Rechtsform und vertretungsberechtigte Person, falls eine juristische Person Betreiberin ist</li>
+          <li>Register, Registergericht und Registernummer</li>
+          <li>Umsatzsteuer-Identifikationsnummer oder Wirtschafts-Identifikationsnummer</li>
+          <li>Zuständige Aufsichtsbehörde oder berufsrechtliche Angaben, falls erforderlich</li>
+        </ul>
+        <p>Falls Angaben zum Gesellschaftskapital gemacht werden, sind außerdem die gesetzlich geforderten Kapitalangaben zu prüfen.</p>
+      </section>
+      <p class="status-note section-block">Vor Veröffentlichung müssen die markierten Kontakt- und Adressfelder ausgefüllt und die Anwendbarkeit der weiteren Pflichtangaben geprüft werden.</p>
+      <p><a href="https://www.gesetze-im-internet.de/ddg/__5.html" target="_blank" rel="noopener noreferrer">§ 5 DDG im Wortlaut</a></p>`;
+  }
+
+  return `<a class="back-link" href="#/">← Zur Startseite</a>
+    <p class="eyebrow">Information</p><h1>Datenschutz</h1>
+    <p class="lede">Hinweise zur Verarbeitung personenbezogener Daten auf dieser Projektwebsite.</p>
+    <p class="status-note">Vor Veröffentlichung ergänzen bzw. prüfen: vollständiger rechtlicher Name, ladungsfähige Anschrift und E-Mail-Adresse der verantwortlichen Person sowie die für das GitHub-Hosting geltenden Angaben zu Speicherdauer, Unterauftragnehmern und möglichen Drittlandübermittlungen.</p>
+
+    <section class="card section-block" aria-labelledby="datenschutz-verantwortliche">
+      <h2 id="datenschutz-verantwortliche">Verantwortliche</h2>
+      <address>
+        Sarah Nachname
+         Str. x, 
+        PLZ Stadt
+      </address>
+      <p>E-Mail: e-mail</p>
+      <p>Diese Website ist ein eigenständiges Studierendenprojekt und wird nicht von der Diakonie Michaelshoven als offizielle Website betrieben.</p>
+      <p>Nach den vorliegenden Angaben ist keine Datenschutzbeauftragte bestellt.</p>
+    </section>
+
+    <section class="card section-block" aria-labelledby="datenschutz-hosting">
+      <h2 id="datenschutz-hosting">Aufruf der Website und Hosting durch GitHub Pages</h2>
+      <p>Diese statische Website wird über GitHub Pages bereitgestellt. Beim Aufruf werden technisch erforderliche Verbindungsdaten an den Hostinganbieter übermittelt. GitHub weist darauf hin, dass bei Besuchen von GitHub-Pages-Websites IP-Adressen zu Sicherheitszwecken protokolliert und gespeichert werden. Welche weiteren Zugriffsdaten verarbeitet werden und wie lange sie gespeichert bleiben, richtet sich nach dem konkreten Hostingverhältnis und den aktuellen Angaben von GitHub.</p>
+      <p>Soweit die Betreiberin Zugriffsdaten verarbeitet, dient dies der Bereitstellung und Sicherheit der Website. Rechtsgrundlage ist ihr berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO an einem funktionsfähigen und sicheren Onlineangebot. GitHub verarbeitet Daten außerdem nach den eigenen Datenschutzinformationen.</p>
+      <p>Bitte prüfe vor Veröffentlichung die für dein Hosting geltenden Vertragsbedingungen, insbesondere die Rollenverteilung, Speicherdauer, Unterauftragnehmer und etwaige Übermittlungen außerhalb des Europäischen Wirtschaftsraums. Eine konkrete Speicherdauer oder ein bestimmter Übermittlungsmechanismus lässt sich aus den Projektdateien nicht feststellen.</p>
+      <ul class="fact-list">
+        <li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages" target="_blank" rel="noopener noreferrer">GitHub Pages: Informationen zum Hosting und zu Zugriffsdaten</a></li>
+        <li><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von GitHub</a></li>
+      </ul>
+    </section>
+
+    <section class="card section-block" aria-labelledby="datenschutz-formulare">
+      <h2 id="datenschutz-formulare">Such- und Prüf-Funktionen</h2>
+      <p>Die Suchfunktion für Spenden sowie die Auswahlfelder zur Spenden- und faircard-Prüfung werden ausschließlich in deinem Browser verarbeitet. Die eingegebenen Suchbegriffe und Auswahlwerte werden nach dem geprüften Projektcode nicht an die Betreiberin übertragen und von dieser Website nicht dauerhaft gespeichert.</p>
+      <p>Der Projektcode setzt keine Cookies und verwendet weder Local Storage noch Analyse- oder Trackingdienste. Es sind keine externen Schriftarten, Karten oder sonstigen Inhalte eingebettet. Diese Aussage betrifft den Website-Code; eine eigenständige Verarbeitung durch den Hostinganbieter bleibt davon unberührt.</p>
+      <p>Die Website verlangt keine personenbezogenen Angaben für ihre Such- und Prüffunktionen. Eine automatisierte Entscheidungsfindung oder Profiling im Sinne von Art. 22 DSGVO findet durch diese Funktionen nicht statt.</p>
+    </section>
+
+    <section class="card section-block" aria-labelledby="datenschutz-links">
+      <h2 id="datenschutz-links">E-Mail- und externe Links</h2>
+      <p>Ein E-Mail-Link öffnet dein E-Mail-Programm. Erst wenn du selbst eine Nachricht absendest, werden die darin enthaltenen Daten an die ausgewählte E-Mail-Adresse übermittelt. Der Kontaktlink dieser Projektwebsite verweist auf fairstore@michaelshoven.de; für die dortige Verarbeitung ist die jeweilige empfangende Stelle verantwortlich.</p>
+      <p>Links zur Website der Diakonie Michaelshoven und zu dort gehosteten Dokumenten führen zu externen Angeboten. Beim Aufruf können technische Daten, insbesondere deine IP-Adresse, an deren Betreiber übermittelt werden. Für deren Datenverarbeitung gelten die Datenschutzhinweise des jeweiligen Anbieters.</p>
+    </section>
+
+    <section class="card section-block" aria-labelledby="datenschutz-rechte">
+      <h2 id="datenschutz-rechte">Deine Rechte</h2>
+      <p>Im Rahmen der gesetzlichen Voraussetzungen hast du das Recht auf Auskunft über deine personenbezogenen Daten (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art. 21 DSGVO). Soweit eine Verarbeitung auf einer Einwilligung beruht, kannst du diese mit Wirkung für die Zukunft widerrufen.</p>
+      <p>Du kannst dich außerdem bei einer Datenschutzaufsichtsbehörde beschweren, insbesondere bei der für Nordrhein-Westfalen zuständigen Landesbeauftragten für Datenschutz und Informationsfreiheit (LDI NRW): <a href="https://www.ldi.nrw.de/kontakt" target="_blank" rel="noopener noreferrer">Kontakt zur LDI NRW</a>.</p>
+      <p>Zur Ausübung deiner Rechte kannst du die oben genannte verantwortliche Person kontaktieren. Bitte ergänze deren Kontaktangaben vor der Veröffentlichung.</p>
+    </section>
+
+    <p class="section-block"><a href="https://www.gesetze-im-internet.de/ttdsg/__25.html" target="_blank" rel="noopener noreferrer">§ 25 TDDDG im Wortlaut</a></p>`;
 }
 
 function render() {
@@ -475,7 +596,7 @@ function faircardResult(proof) {
     bafoeg: "Ein BAföG- oder BAB-Bescheid ist als möglicher Nachweis genannt.",
     kinderzuschlag: "Ein Bescheid über Kindergeldzuschlag ist als möglicher Nachweis genannt.",
     einkommen: "Ein Einkommensnachweis, zum Beispiel Gehalt, Rente oder Ausbildung, ist als möglicher Nachweis genannt.",
-    student: "Ein Studentenausweis wird als Nachweis für die faircard genannt."
+    student: "Ein Student:innenausweis wird als Nachweis für die faircard genannt."
   };
   if (proof === "unsicher") {
     result.innerHTML = "<h3>Du bist unsicher?</h3><p>Die vorliegenden Angaben nennen mehrere mögliche Nachweise. Frage direkt an der Kasse nach oder wende dich an das fairstore-Team.</p><p><a href=\"mailto:fairstore@michaelshoven.de\">fairstore@michaelshoven.de</a></p>";

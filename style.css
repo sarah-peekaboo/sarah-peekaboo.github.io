@@ -599,6 +599,16 @@ p:last-child {
   line-height: 1.55;
 }
 
+.location-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  background: var(--surface);
+  object-fit: cover;
+}
+
 .location-link {
   display: block;
   color: inherit;
@@ -607,15 +617,42 @@ p:last-child {
 }
 
 .location-map {
-  display: grid;
-  min-height: 180px;
-  place-items: center;
-  padding: 22px;
-  border: 1px dashed #aaa;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
   border-radius: 16px;
   background: var(--surface);
+}
+
+.location-map-graphic {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.location-map-marker {
+  fill: var(--text);
+  stroke: var(--page);
+  stroke-width: 3px;
+}
+
+.location-map-label {
+  fill: var(--text);
+  font: 600 24px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.location-map-caption {
+  padding: 0 14px 12px;
   color: var(--muted);
   text-align: center;
+}
+
+.location-map-caption a {
+  display: inline-block;
+  min-height: 44px;
+  padding: 10px 0;
 }
 
 .faq-list {
